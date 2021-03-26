@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <data>
+        <import type="com.kooapps.mininumbergame.model.helper.GridGameSettingsUtil"/>
+        <import type="com.kooapps.mininumbergame.model.main.GridGameSettings"/>
+        <import type="com.kooapps.mininumbergame.model.helper.ViewUtil" />
+        <variable
+            name="gridGameSettings"
+            type="GridGameSettings" />
+
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:clickable="true"
+        android:focusable="true"
+        tools:context=".fragment.SettingsFragment">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            tools:context=".fragment.SettingsFragment"
+            android:id="@+id/settings_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/light_forest_80_alpha">
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/game_mode_switch"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:textScaleFactor="@{0}"
+                android:text="@string/game_mode_ui_text"
+                android:checked="true"
+                android:textColor="@color/dark_forest"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/ascending_bottom_margin"
+                app:layout_constraintEnd_toStartOf="@+id/switch_right_margin"
+                app:layout_constraintStart_toStartOf="@+id/switch_left_margin"
+                app:layout_constraintTop_toTopOf="@+id/ascending_top_margin" />
+
+            <com.google.android.material.switchmaterial.SwitchMaterial
+                android:id="@+id/timed_mode_switch"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:textScaleFactor="@{0}"
+                android:gravity="center"
+                android:text="@string/timed_ui_text"
+                android:checked="@{gridGameSettings.timed}"
+                android:textColor="@color/dark_forest"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/timed_mode_bottom_margin2"
+                app:layout_constraintEnd_toStartOf="@+id/switch_right_margin"
+                app:layout_constraintStart_toStartOf="@+id/switch_left_margin"
+                app:layout_constraintTop_toTopOf="@+id/settings_top_margin"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <SeekBar
+                android:id="@+id/row_seekbar"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:max="@{GridGameSettings.MAX_ROW - GridGameSettings.MIN_ROW}"
+                android:tickMarkTint="@color/dark_forest"
+                android:progressBackgroundTint="@color/light_forest"
+                app:layout_constraintBottom_toTopOf="@+id/row_seekbar_bottom_margin"
+                app:layout_constraintEnd_toStartOf="@+id/settings_right_margin"
+                app:layout_constraintStart_toStartOf="@+id/settings_left_margin3"
+                app:layout_constraintTop_toTopOf="@+id/row_seekbar_top_margin2" />
+
+            <SeekBar
+                android:id="@+id/column_seekbar"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:max="@{GridGameSettings.MAX_COLUMN - GridGameSettings.MIN_COLUMN}"
+                android:tickMarkTint="@color/dark_forest"
+                android:progressBackgroundTint="@color/light_forest"
+                app:layout_constraintBottom_toTopOf="@+id/column_seekbar_bottom_margin"
+                app:layout_constraintEnd_toStartOf="@+id/settings_right_margin"
+                app:layout_constraintStart_toStartOf="@+id/settings_left_margin3"
+                app:layout_constraintTop_toTopOf="@+id/column_seekbar_top_margin2" />
+
+            <TextView
+                android:id="@+id/row_settings_texview"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:textScaleFactor="@{0}"
+                android:text="@{GridGameSettingsUtil.textForRow(context, gridGameSettings.rowCount)}"
+                android:textColor="@color/dark_forest"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/row_text_bottom_margin"
+                app:layout_constraintEnd_toStartOf="@+id/switch_right_margin"
+                app:layout_constraintStart_toStartOf="@+id/switch_left_margin"
+                app:layout_constraintTop_toTopOf="@+id/row_text_top_margin2" />
+
+            <TextView
+                android:id="@+id/column_settings_textview"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:textScaleFactor="@{0}"
+                android:text="@{GridGameSettingsUtil.textForColumn(context, gridGameSettings.columnCount)}"
+                android:textColor="@color/dark_forest"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/column_text_bottom_margin"
+                app:layout_constraintEnd_toStartOf="@+id/switch_right_margin"
+                app:layout_constraintStart_toStartOf="@+id/switch_left_margin"
+                app:layout_constraintTop_toTopOf="@+id/column_text_top_margin2" />
+
+            <TextView
+                android:id="@+id/time_limit_textview"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:textScaleFactor="@{0}"
+                android:text="@{GridGameSettingsUtil.textForTimeLimit(context, gridGameSettings.timeLimit)}"
+                android:textColor="@color/dark_forest"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/time_limit_text_bottom_margin"
+                app:layout_constraintEnd_toStartOf="@+id/switch_right_margin"
+                app:layout_constraintStart_toStartOf="@+id/switch_left_margin"
+                app:layout_constraintTop_toTopOf="@+id/time_limit_text_top_margin2" />
+
+            <TextView
+                android:id="@+id/base_score_textview"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:textScaleFactor="@{0}"
+                android:text="@{GridGameSettingsUtil.textForBaseScore(context, gridGameSettings.baseScore)}"
+                android:textColor="@color/dark_forest"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/base_score_text_bottom_margin"
+                app:layout_constraintEnd_toStartOf="@+id/switch_right_margin"
+                app:layout_constraintStart_toStartOf="@+id/switch_left_margin"
+                app:layout_constraintTop_toTopOf="@+id/base_score_text_top_margin" />
+
+            <SeekBar
+                android:id="@+id/time_limit_seekbar"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:max="@{GridGameSettingsUtil.getSecondsForTimeLimit(GridGameSettings.MAX_TIME_LIMIT) - GridGameSettingsUtil.getSecondsForTimeLimit(GridGameSettings.MIN_TIME_LIMIT)}"
+                android:tickMarkTint="@color/dark_forest"
+                android:progressBackgroundTint="@color/light_forest"
+                app:layout_constraintBottom_toTopOf="@+id/time_limit_seekbar_bottom_margin"
+                app:layout_constraintEnd_toStartOf="@+id/settings_right_margin"
+                app:layout_constraintStart_toStartOf="@+id/settings_left_margin3"
+                app:layout_constraintTop_toTopOf="@+id/time_limit_seekbar_top_margin2" />
+
+            <SeekBar
+                android:id="@+id/base_score_seekbar"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:max="@{GridGameSettings.MAX_BASE_SCORE - GridGameSettings.MIN_BASE_SCORE}"
+                android:tickMarkTint="@color/dark_forest"
+                android:progressBackgroundTint="@color/light_forest"
+                app:layout_constraintBottom_toTopOf="@+id/base_score_seekbar_bottom_margin2"
+                app:layout_constraintEnd_toStartOf="@+id/settings_right_margin"
+                app:layout_constraintStart_toStartOf="@+id/settings_left_margin3"
+                app:layout_constraintTop_toTopOf="@+id/base_score_seekbar_top_margin" />
+
+            <TextView
+                android:id="@+id/textView"
+                style="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:textScaleFactor="@{2}"
+                android:text="@string/tap_settings_to_save_changes_text"
+                android:textColor="@color/dark_forest"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/settings_message_text_bottom_margin"
+                app:layout_constraintEnd_toStartOf="@+id/settings_right_margin"
+                app:layout_constraintStart_toStartOf="@+id/settings_left_margin3"
+                app:layout_constraintTop_toTopOf="@+id/settings_message_text_top_margin2" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/settings_right_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.95" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/switch_right_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.75" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/switch_left_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.25" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/settings_left_margin3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.05" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/settings_bottom_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.95" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/ascending_top_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.16" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/ascending_bottom_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.26" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/time_limit_text_bottom_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.32" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/time_limit_seekbar_bottom_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.38" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/base_score_text_top_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.39" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/base_score_text_bottom_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.44" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/base_score_seekbar_top_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.45" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/row_text_bottom_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.56" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/row_text_bottom_margin2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.56" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/row_seekbar_bottom_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.62" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/column_text_bottom_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.68" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/column_seekbar_bottom_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.74" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/settings_message_text_bottom_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.89" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/settings_message_text_top_margin2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.77" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/column_seekbar_top_margin2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.69" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/column_text_top_margin2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.63" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/row_seekbar_top_margin2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.57" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/row_text_top_margin2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.51" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/base_score_seekbar_bottom_margin2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/time_limit_seekbar_top_margin2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.33" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/time_limit_text_top_margin2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.27" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/timed_mode_bottom_margin2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.15" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/settings_top_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.05745554" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

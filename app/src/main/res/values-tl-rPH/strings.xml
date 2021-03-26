@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mini Number Game</string>
+    <string name="time_remaining_text">Natitirang oras: %.2f</string>
+    <string name="score_text">Puntos: %d</string>
+    <string name="settings">Mga Setting</string>
+    <string name="start_game_text">Umpisahan</string>
+    <string name="time_limit_settings_text">Hangganan: %d</string>
+    <string name="base_score_settings_text">Pinakamababang puntos: %d</string>
+    <string name="column_settings_text">Haligi: %d</string>
+    <string name="row_settings_text">Hilera: %d</string>
+    <string name="game_times_up_text">Ubos na ang oras. Tapos na ang laro!</string>
+    <string name="game_stop_text">Huminto</string>
+    <string name="game_over_text">Tapos na ang laro!</string>
+    <string name="game_wrong_cell_text">Maling selda. Tapos na ang laro!</string>
+    <string name="game_start_button_text">Umpisahan</string>
+    <string name="bonus_with_time_bonus_text">Bonus na Puntos: %d\nBonus na Oras: %d</string>
+    <string name="bonus_text">Bonus na Puntos: %d</string>
+    <string name="settings_row_ui_text">Hilera: %d</string>
+    <string name="settings_column_ui_text">Haligi: %d</string>
+    <string name="timed_ui_text">May Hangganan?</string>
+    <string name="game_mode_ui_text">Paakyat?</string>
+    <string name="time_limit_ui_text">Hangganan ng Oras: %d</string>
+    <string name="base_score_ui_text">Pinakamababang puntos: %d</string>
+    <string name="tap_settings_to_save_changes_text">Pindutin ang Mga Setting para iligtas ang mga binago.</string>
+    <string name="game_started_text">Ang laro ay nagsimula na!</string>
+    <string name="settings_saved_successfully_text">Ang settings ay nailigtas na!</string>
+    <string name="no_lives_text">Wala ng buhay.</string>
+    <string name="no_ads_available_text">Wala ng ads sa ngayon!</string>
+    <string name="no_more_lives_text">Wala ng buhay. Ika\'y makakakuha ng buhay sa panonood ng ad.</string>
+    <string name="ad_loading_text">Naglo-load ang ad, maghinatay ka…</string>
+    <string name="ad_reward_success_text">Binabati kita, ikaw ay nakakuha ng karagdagang buhay!</string>
+    <string name="ad_reward_failed_text">Patawad, hindi mo nakuha ang karagdagang buhay. Ulitin muli.</string>
+    <string name="failed_to_load_ad_text">Hindi nag-load ang ad. Ulitin muli.</string>
+    <string name="no_internet_connection">Kumonekta sa internet at subukan muli.</string>
+    <string name="checking_for_connection_text">Tinitignan kung may koneksyon ang internet…</string>
+    <string name="watch_ad_text">Manood ng ad</string>
+</resources>
